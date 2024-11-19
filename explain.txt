@@ -1,0 +1,97 @@
+i have the following raid devices
+
+/dev/md0:
+/dev/md1:
+/dev/md2:
+/dev/md3:
+/dev/md4:
+
+let's look at md0
+
+it says it is a RAID 1 mirror array
+
+```
+Raid Level : raid1
+Array Size : 8388544 (8.00 GiB 8.59 GB)
+```
+
+we know what disks it is on by looking here:
+
+```
+ Number   Major   Minor   RaidDevice State
+       0       8       17        0      active sync   /dev/sata2p1
+       1       8       33        1      active sync   /dev/sata3p1
+       2       8        1        2      active sync   /dev/sata1p1
+       -       0        0        3      removed
+```
+
+i only have three disks installed in the system. it shows that there is a partition (p1) on each of my three disks. and it is showing that the md0 raid array is a raid of these partitions. 
+
+as an FYI, this is the partition where DSM is installed. 
+
+if we look at md1 (which is where the disk swapp is stored) it is also a raid 1 mirror array
+
+```
+Raid Level : raid1
+     Array Size : 2097088 (2047.94 MiB 2147.42 MB)
+  Used Dev Size : 2097088 (2047.94 MiB 2147.42 MB)
+```
+
+we can see what disks it is on here:
+
+```
+    Number   Major   Minor   RaidDevice State
+       0       8       18        0      active sync   /dev/sata2p2
+       1       8       34        1      active sync   /dev/sata3p2
+       2       8        2        2      active sync   /dev/sata1p2
+       -       0        0        3      removed
+```
+
+as we can see there is a second partition on each of my disks, (p2) and the md1 is a raid array of these partitions
+
+
+synology SHR does this same thing.
+
+let's say we have four disks with the following size:
+
+```
+disk 1: 2TB
+disk 2: 4TB
+disk 3: 5TB
+disk 4: 6TB
+```
+
+
+DSM will make a 2TB partition on all disks, and make a raid array out of these 4x partitions. it will make a raid 5 for SHR1 and raid 6 array for SHR2. so we now have 
+
+4x 2TB partitions in either raid 5 or raid 6 to make let's say ```"array#1"``` that is either 6TB if SHR1 or 4TB if SHR2
+
+we now have the following space REMAINING in each disk
+
+```
+disk 1: 0 bytes
+disk 2: 2TB
+disk 3: 3TB
+disk 4: 4TB
+```
+
+DSM will make a 2TB partition on disks 2, 3, and 4, and make a raid array out of these 3x partitions. it will make a raid 5 for SHR1 and raid 6 array for SHR2. so we now have 
+
+3x 2TB partitions in either raid 5 or raid 6 to make let's say ```"array#2"``` that is either 4TB if SHR1 or 2TB if SHR2
+
+we now have the following space REMAINING in each disk
+
+```
+disk 1: 0 bytes
+disk 2: 0 bytes
+disk 3: 1TB
+disk 4: 3TB
+```
+
+DSM will make a 1TB partition on disks 3 and 4, and make a RAID 1 array 
+
+2x 1TB partitions in raid 1 make let's say ```"array#3"``` that is 1TB in size
+
+and so on until it uses all the space
+
+now, the EXACT size, raid config etc will be dependent on number of disks and their sizes compared to each other. 
