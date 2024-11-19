@@ -1,0 +1,122 @@
+mdadm --query --detail /dev/md*
+/dev/md0:
+        Version : 0.90
+  Creation Time : Fri Dec 31 18:04:07 1999
+     Raid Level : raid1
+     Array Size : 8388544 (8.00 GiB 8.59 GB)
+  Used Dev Size : 8388544 (8.00 GiB 8.59 GB)
+   Raid Devices : 4
+  Total Devices : 3
+Preferred Minor : 0
+    Persistence : Superblock is persistent
+
+    Update Time : Tue Nov 19 16:21:58 2024
+          State : clean, degraded
+ Active Devices : 3
+Working Devices : 3
+ Failed Devices : 0
+  Spare Devices : 0
+
+           UUID : 2d160803:3807ce2f:05d949f7:b0bbaec7
+         Events : 0.990795
+
+    Number   Major   Minor   RaidDevice State
+       0       8       17        0      active sync   /dev/sata2p1
+       1       8       33        1      active sync   /dev/sata3p1
+       2       8        1        2      active sync   /dev/sata1p1
+       -       0        0        3      removed
+/dev/md1:
+        Version : 0.90
+  Creation Time : Fri Dec 31 18:04:10 1999
+     Raid Level : raid1
+     Array Size : 2097088 (2047.94 MiB 2147.42 MB)
+  Used Dev Size : 2097088 (2047.94 MiB 2147.42 MB)
+   Raid Devices : 4
+  Total Devices : 3
+Preferred Minor : 1
+    Persistence : Superblock is persistent
+
+    Update Time : Sat Nov  9 16:45:25 2024
+          State : clean, degraded
+ Active Devices : 3
+Working Devices : 3
+ Failed Devices : 0
+  Spare Devices : 0
+
+           UUID : ebf7fce4:176de694:05d949f7:b0bbaec7
+         Events : 0.30264
+
+    Number   Major   Minor   RaidDevice State
+       0       8       18        0      active sync   /dev/sata2p2
+       1       8       34        1      active sync   /dev/sata3p2
+       2       8        2        2      active sync   /dev/sata1p2
+       -       0        0        3      removed
+/dev/md2:
+        Version : 1.2
+  Creation Time : Sun Feb  4 13:47:09 2024
+     Raid Level : raid1
+     Array Size : 17567603712 (16753.77 GiB 17989.23 GB)
+  Used Dev Size : 17567603712 (16753.77 GiB 17989.23 GB)
+   Raid Devices : 1
+  Total Devices : 1
+    Persistence : Superblock is persistent
+
+    Update Time : Tue Nov 19 16:21:55 2024
+          State : clean
+ Active Devices : 1
+Working Devices : 1
+ Failed Devices : 0
+  Spare Devices : 0
+
+           Name : DS-920_spare:2  (local to host DS-920_spare)
+           UUID : 1dc2a6ac:297250d8:b57fd320:6854ce18
+         Events : 22
+
+    Number   Major   Minor   RaidDevice State
+       0       8       19        0      active sync   /dev/sata2p3
+/dev/md3:
+        Version : 1.2
+  Creation Time : Sun Feb  4 13:47:44 2024
+     Raid Level : raid1
+     Array Size : 11708161024 (11165.77 GiB 11989.16 GB)
+  Used Dev Size : 11708161024 (11165.77 GiB 11989.16 GB)
+   Raid Devices : 1
+  Total Devices : 1
+    Persistence : Superblock is persistent
+
+    Update Time : Tue Nov 19 10:47:05 2024
+          State : clean
+ Active Devices : 1
+Working Devices : 1
+ Failed Devices : 0
+  Spare Devices : 0
+
+           Name : DS-920_spare:3  (local to host DS-920_spare)
+           UUID : 7dcc503d:df630578:33874b2e:256662f8
+         Events : 19
+
+    Number   Major   Minor   RaidDevice State
+       0       8       35        0      active sync   /dev/sata3p3
+/dev/md4:
+        Version : 1.2
+  Creation Time : Sun Feb  4 13:48:56 2024
+     Raid Level : raid1
+     Array Size : 7803302208 (7441.81 GiB 7990.58 GB)
+  Used Dev Size : 7803302208 (7441.81 GiB 7990.58 GB)
+   Raid Devices : 1
+  Total Devices : 1
+    Persistence : Superblock is persistent
+
+    Update Time : Tue Nov 19 10:47:03 2024
+          State : clean
+ Active Devices : 1
+Working Devices : 1
+ Failed Devices : 0
+  Spare Devices : 0
+
+           Name : DS-920_spare:4  (local to host DS-920_spare)
+           UUID : 014e546e:a1220c39:84d761b0:f7377ae0
+         Events : 29
+
+    Number   Major   Minor   RaidDevice State
+       0       8        3        0      active sync   /dev/sata1p3
